@@ -8,7 +8,7 @@ A modern implementation of the classic Tic Tac Toe game, featuring an AI opponen
 - 🤖 Three AI difficulty levels (Easy, Medium, Hard)
 - 📊 Persistent score tracking
 - 🎯 Smart AI moves with strategic decision making
-- 🎨 Modern, responsive design
+- 🎨 Five beautiful theme options
 - ✨ Victory animations and effects
 - 🧪 Comprehensive test coverage with unit, property-based, and E2E tests
 
@@ -106,6 +106,18 @@ npm run test:e2e:debug
 # View e2e test reports
 npm run test:e2e:report
 ```
+
+## Themes
+
+The game features five carefully crafted themes that provide different visual experiences:
+
+1. 🍂 **Autumn Warmth** - A cozy theme with warm oranges and muted purples
+2. 🌅 **Desert Sunset** - Vibrant oranges and peach tones inspired by desert landscapes
+3. ☕ **Coffee House** - Rich browns and creamy neutrals for a coffee shop ambiance
+4. 🌸 **Cherry Blossom** - Delicate pinks and soft hues reminiscent of spring
+5. 🌞 **Golden Hour** - Warm yellows and oranges capturing the magic of sunset
+
+Themes are automatically saved to your browser's local storage, so your preference persists between sessions.
 
 ## Game Features
 
