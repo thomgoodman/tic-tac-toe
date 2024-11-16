@@ -88,6 +88,10 @@ npm run test:watch
 Our testing strategy includes:
 - **Unit Tests**: Traditional unit tests for core game logic
 - **Property-Based Tests**: Automated test generation for edge cases
+- **End-to-End Tests**: Cross-browser testing of user interactions and game flows
+  - Game functionality (moves, wins, resets)
+  - Theme system (selection, persistence, appearance)
+  - Browser compatibility (Chromium, Firefox, WebKit)
 - **Test Coverage**: Comprehensive testing of game mechanics
 
 #### End-to-End Tests
@@ -101,12 +105,28 @@ npm run test:e2e:headed
 # Run e2e tests with Playwright UI mode
 npm run test:e2e:ui
 
-# Debug e2e tests
-npm run test:e2e:debug
-
 # View e2e test reports
 npm run test:e2e:report
 ```
+
+The E2E test suite uses Playwright to verify the application works correctly across different browsers and user scenarios:
+
+- **Game Flow Tests** (`game.spec.js`):
+  - Board interaction and move validation
+  - AI opponent behavior at different difficulty levels
+  - Score tracking and persistence
+  - Game reset functionality
+  - Player symbol selection
+  - Win/draw detection
+
+- **Theme System Tests** (`theme.spec.js`):
+  - Theme selection and switching
+  - Theme persistence across sessions
+  - Visual appearance verification
+  - Color scheme application
+  - UI element styling
+
+Tests run automatically on Chromium, Firefox, and WebKit to ensure consistent behavior across all major browser engines.
 
 ## Themes
 
