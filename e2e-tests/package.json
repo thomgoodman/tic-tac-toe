@@ -1,0 +1,19 @@
+{
+  "name": "e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-end tests for Tic Tac Toe game",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
+  "keywords": ["testing", "e2e", "playwright"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

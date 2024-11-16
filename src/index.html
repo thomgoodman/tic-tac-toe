@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div class="scoreboard">
+            <div class="score-item">
+                <span class="score-label">Wins</span>
+                <span class="score-value" id="wins">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Losses</span>
+                <span class="score-value" id="losses">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Draws</span>
+                <span class="score-value" id="draws">0</span>
+            </div>
+        </div>
+        <div class="controls">
+            <div class="difficulty-selector">
+                <label for="difficulty">AI Difficulty:</label>
+                <select id="difficulty" class="select-dropdown">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="player-selector">
+                <label for="player-symbol">Play as:</label>
+                <select id="player-symbol" class="select-dropdown">
+                    <option value="X" selected>X (First)</option>
+                    <option value="O">O (Second)</option>
+                </select>
+            </div>
+        </div>
+        <div class="status" id="message"></div>
+        <div class="board" id="board"></div>
+        <div class="game-controls">
+            <button id="reset" class="reset-button">New Game</button>
+            <button id="reset-history" class="reset-button reset-history">Reset History</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

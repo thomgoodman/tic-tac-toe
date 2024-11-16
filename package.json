@@ -1,0 +1,28 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Tic Tac Toe game with AI opponent",
+  "main": "src/script.js",
+  "scripts": {
+    "start": "http-server src -p 8080",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:e2e": "start-server-and-test start http://localhost:8080 'cd e2e-tests && npm test'",
+    "test:e2e:headed": "start-server-and-test start http://localhost:8080 'cd e2e-tests && npm run test:headed'",
+    "test:e2e:ui": "start-server-and-test start http://localhost:8080 'cd e2e-tests && npm run test:ui'",
+    "test:e2e:debug": "start-server-and-test start http://localhost:8080 'cd e2e-tests && npm run test:debug'",
+    "test:e2e:report": "cd e2e-tests && npm run report"
+  },
+  "keywords": [
+    "game",
+    "tic-tac-toe",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "jest": "^29.7.0",
+    "start-server-and-test": "^2.0.8"
+  }
+}
