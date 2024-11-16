@@ -10,6 +10,7 @@ A modern implementation of the classic Tic Tac Toe game, featuring an AI opponen
 - 🎯 Smart AI moves with strategic decision making
 - 🎨 Modern, responsive design
 - ✨ Victory animations and effects
+- 🧪 Comprehensive test coverage with unit, property-based, and E2E tests
 
 ## Demo
 
@@ -29,13 +30,15 @@ tic-tac-toe/
 │   ├── styles.css      # Game styling
 │   ├── script.js       # UI and game controls
 │   └── gameLogic.js    # Core game logic
-├── test/               # Unit tests
-│   └── gameLogic.test.js  # Game logic unit tests
+├── test/               # Unit and property-based tests
+│   ├── gameLogic.test.js       # Game logic unit tests
+│   └── gameLogic.property.test.js  # Property-based tests
 ├── e2e-tests/          # End-to-end tests
 │   ├── tests/          # Test specs
 │   │   └── game.spec.js   # Game flow tests
 │   ├── playwright.config.js  # Playwright configuration
 │   └── package.json    # E2E test dependencies
+├── jest.config.js      # Jest configuration for unit tests
 └── package.json        # Main project dependencies
 ```
 
@@ -70,16 +73,21 @@ Simply open `src/index.html` in your web browser. No build step is required as t
 
 ### Running Tests
 
-The project includes both unit tests and end-to-end tests. All tests can be run from the project root directory:
+The project includes unit tests, property-based tests, and end-to-end tests. All tests can be run from the project root directory:
 
-#### Unit Tests
+#### Unit and Property-Based Tests
 ```bash
-# Run unit tests once
+# Run all tests once
 npm test
 
-# Run unit tests in watch mode
+# Run tests in watch mode
 npm run test:watch
 ```
+
+Our testing strategy includes:
+- **Unit Tests**: Traditional unit tests for core game logic
+- **Property-Based Tests**: Automated test generation for edge cases
+- **Test Coverage**: Comprehensive testing of game mechanics
 
 #### End-to-End Tests
 ```bash
@@ -131,7 +139,17 @@ The AI uses the following strategy (in hard mode):
 - Move validation
 - Win detection
 - AI move generation
-- Edge cases
+- Edge cases and boundary conditions
+- Player switching logic
+- Game state management
+
+#### Property-Based Tests
+- Board state validation
+- Move sequence generation
+- Win condition verification
+- Draw detection
+- AI move validation
+- Game state transitions
 
 #### End-to-End Tests
 - Game board rendering
@@ -163,6 +181,6 @@ This project is licensed under the ISC License - see the LICENSE file for detail
 ## Acknowledgments
 
 - Built with vanilla JavaScript, HTML, and CSS
-- Uses Jest for unit testing
+- Uses Jest for unit and property-based testing
 - Uses Playwright for end-to-end testing
 - Implements the minimax algorithm for AI moves
