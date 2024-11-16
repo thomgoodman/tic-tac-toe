@@ -8,114 +8,130 @@ describe('TicTacToeGame', () => {
     });
 
     describe('Game Initialization', () => {
-        test('should start with empty board', () => {
-            const { board } = game.getGameState();
-            expect(board.every(cell => cell === '')).toBe(true);
-        });
-
-        test('should start with player X', () => {
-            expect(game.getGameState().currentPlayer).toBe('X');
-        });
-
-        test('should start with active game state', () => {
-            expect(game.getGameState().isGameActive).toBe(true);
+        test('should initialize with empty board', () => {
+            const state = game.getGameState();
+            expect(state.board.length).toBe(9);
+            expect(state.board.every(cell => cell === '')).toBe(true);
+            expect(state.currentPlayer).toBe('X');
+            expect(state.isGameActive).toBe(true);
         });
     });
 
-    describe('Making Moves', () => {
-        test('should allow valid moves', () => {
-            expect(game.makeMove(0)).toBe(true);
-            expect(game.getGameState().board[0]).toBe('X');
-        });
-
-        test('should not allow moves on occupied cells', () => {
+    describe('Move Validation', () => {
+        test('should validate moves correctly', () => {
+            expect(game.isValidMove(0)).toBe(true);
             game.makeMove(0);
-            expect(game.makeMove(0)).toBe(false);
+            expect(game.isValidMove(0)).toBe(false);
+            expect(game.isValidMove(-1)).toBe(false);
+            expect(game.isValidMove(9)).toBe(false);
         });
 
-        test('should not allow moves outside the board', () => {
-            expect(game.makeMove(9)).toBe(false);
-            expect(game.makeMove(-1)).toBe(false);
+        test('should handle invalid move types', () => {
+            expect(game.isValidMove('string')).toBe(false);
+            expect(game.isValidMove(null)).toBe(false);
+            expect(game.isValidMove(undefined)).toBe(false);
+            expect(game.isValidMove({})).toBe(false);
+            expect(game.isValidMove([])).toBe(false);
         });
     });
 
-    describe('Win Detection', () => {
+    describe('Game Play', () => {
+        test('should make moves and switch players', () => {
+            game.makeMove(0);
+            let state = game.getGameState();
+            expect(state.board[0]).toBe('X');
+            expect(state.currentPlayer).toBe('O');
+
+            game.makeMove(1);
+            state = game.getGameState();
+            expect(state.board[1]).toBe('O');
+            expect(state.currentPlayer).toBe('X');
+        });
+
         test('should detect horizontal win', () => {
-            game.makeMove(0); // X
-            game.switchPlayer();
-            game.makeMove(3); // O
-            game.switchPlayer();
-            game.makeMove(1); // X
-            game.switchPlayer();
-            game.makeMove(4); // O
-            game.switchPlayer();
-            game.makeMove(2); // X
+            [0, 3, 1, 4, 2].forEach(move => game.makeMove(move));
             expect(game.checkWinner()).toBe('X');
+            expect(game.isGameActive).toBe(false);
         });
 
         test('should detect vertical win', () => {
-            game.makeMove(0); // X
-            game.switchPlayer();
-            game.makeMove(1); // O
-            game.switchPlayer();
-            game.makeMove(3); // X
-            game.switchPlayer();
-            game.makeMove(4); // O
-            game.switchPlayer();
-            game.makeMove(6); // X
+            [0, 1, 3, 4, 6].forEach(move => game.makeMove(move));
             expect(game.checkWinner()).toBe('X');
+            expect(game.isGameActive).toBe(false);
         });
 
         test('should detect diagonal win', () => {
-            game.makeMove(0); // X
-            game.switchPlayer();
-            game.makeMove(1); // O
-            game.switchPlayer();
-            game.makeMove(4); // X
-            game.switchPlayer();
-            game.makeMove(2); // O
-            game.switchPlayer();
-            game.makeMove(8); // X
+            [0, 1, 4, 2, 8].forEach(move => game.makeMove(move));
             expect(game.checkWinner()).toBe('X');
+            expect(game.isGameActive).toBe(false);
         });
 
         test('should detect draw', () => {
-            // Fill board without winning
-            const moves = [0, 1, 2, 4, 3, 6, 5, 8, 7];
-            moves.forEach(move => {
-                game.makeMove(move);
-                game.switchPlayer();
-            });
+            // X O X
+            // X O O
+            // O X X
+            const moves = [0, 1, 2, 4, 3, 5, 7, 6, 8];
+            moves.forEach(move => game.makeMove(move));
             expect(game.checkWinner()).toBe('draw');
+            expect(game.isGameActive).toBe(false);
         });
     });
 
     describe('AI Moves', () => {
-        test('should block winning moves', () => {
-            // Create a scenario where X can win
+        test('should generate valid moves for all difficulties', () => {
+            ['easy', 'medium', 'hard'].forEach(difficulty => {
+                const move = game.getBestMove(difficulty);
+                expect(move).toBeGreaterThanOrEqual(0);
+                expect(move).toBeLessThanOrEqual(8);
+                expect(game.isValidMove(move)).toBe(true);
+            });
+        });
+
+        test('should block opponent winning move in hard mode', () => {
+            // Set up a scenario where O needs to block X from winning
+            [0, 4, 1].forEach(move => game.makeMove(move));
+            const aiMove = game.getBestMove('hard');
+            expect(aiMove).toBe(2); // Block X's winning move
+        });
+
+        test('should take winning move when available in hard mode', () => {
+            // Set up a scenario where O can win
             game.makeMove(0); // X
-            game.switchPlayer();
-            game.makeMove(4); // O
-            game.switchPlayer();
+            game.makeMove(3); // O
             game.makeMove(1); // X
-            
-            // AI should block position 2
+            game.makeMove(4); // O
+            game.makeMove(8); // X
             const aiMove = game.getBestMove('hard');
-            expect(aiMove).toBe(2);
+            expect(aiMove).toBe(5); // O should take the winning move
         });
 
-        test('should take winning moves when available', () => {
-            // Set up a winning opportunity for O
-            game.gameState = ['O', 'O', '', '', '', '', '', '', ''];
-            game.currentPlayer = 'O';
-            
+        test('should prefer center in hard mode when available', () => {
             const aiMove = game.getBestMove('hard');
-            expect(aiMove).toBe(2);
+            expect(aiMove).toBe(4); // Center position
+        });
+    });
+
+    describe('Game State Management', () => {
+        test('should track game state correctly', () => {
+            // Make non-winning moves
+            const moves = [0, 3, 1, 4];
+            moves.forEach(move => {
+                const currentPlayer = game.currentPlayer;
+                game.makeMove(move);
+                const state = game.getGameState();
+                expect(state.board[move]).toBe(currentPlayer);
+                expect(state.isGameActive).toBe(true);
+            });
         });
 
-        test('should prefer center when available', () => {
-            const aiMove = game.getBestMove('hard');
-            expect(aiMove).toBe(4);
+        test('should handle board full condition', () => {
+            // X O X
+            // X O O
+            // O X X
+            const moves = [0, 1, 2, 4, 3, 5, 7, 6, 8];
+            moves.forEach(move => game.makeMove(move));
+            expect(game.isBoardFull()).toBe(true);
+            expect(game.isGameActive).toBe(false);
         });
     });
 });
