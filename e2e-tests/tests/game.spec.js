@@ -3,6 +3,8 @@ const { test, expect } = require('@playwright/test');
 test.describe('Tic Tac Toe Game', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
+    // Wait for board to be ready
+    await page.waitForSelector('.board');
   });
 
   test('should display the game board', async ({ page }) => {
@@ -50,6 +52,7 @@ test.describe('Tic Tac Toe Game', () => {
     
     // Click reset
     await page.locator('#reset').click();
+    await page.waitForTimeout(100); // Wait for reset animation
     
     // Check all cells are empty
     const cells = await page.locator('.cell').all();
@@ -59,12 +62,28 @@ test.describe('Tic Tac Toe Game', () => {
   });
 
   test('should reset score history', async ({ page }) => {
-    // Make some moves to potentially get scores
-    await page.locator('.cell').first().click();
-    await page.waitForTimeout(1000);
+    // Handle the confirmation dialog - must be set up before triggering dialog
+    page.on('dialog', async dialog => {
+      await dialog.accept();
+    });
+
+    // Play a winning sequence to get some scores
+    const moves = [
+      [0, 0], [1, 0], // X, O
+      [0, 1], [1, 1], // X, O
+      [0, 2]          // X wins
+    ];
+
+    for (const [row, col] of moves) {
+      await page.locator('.cell').nth(row * 3 + col).click();
+      await page.waitForTimeout(100);
+    }
+
+    await page.waitForTimeout(500); // Wait for score to update
     
     // Reset history
     await page.locator('#reset-history').click();
+    await page.waitForTimeout(200); // Wait for reset and localStorage update
     
     // Check scores are reset
     await expect(page.locator('#wins')).toHaveText('0');

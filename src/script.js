@@ -7,6 +7,7 @@ const playerSymbolSelect = document.getElementById('player-symbol');
 const winsElement = document.getElementById('wins');
 const lossesElement = document.getElementById('losses');
 const drawsElement = document.getElementById('draws');
+const colorSchemeSelect = document.getElementById('color-scheme');
 
 let gameState = ['', '', '', '', '', '', '', '', ''];
 let playerSymbol = 'X';
@@ -262,6 +263,24 @@ function resetScores() {
         setTimeout(() => el.classList.remove('updated'), 300);
     });
 }
+
+// Theme handling
+function setTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+// Initialize theme from localStorage or default to 'autumn'
+const savedTheme = localStorage.getItem('theme') || 'autumn';
+setTheme(savedTheme);
+
+// Theme selector event listener
+document.getElementById('color-scheme').addEventListener('change', (e) => {
+    setTheme(e.target.value);
+});
+
+// Set initial theme selection
+document.getElementById('color-scheme').value = savedTheme;
 
 // Event Listeners
 resetButton.addEventListener('click', resetGame);
