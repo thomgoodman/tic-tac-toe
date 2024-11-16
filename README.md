@@ -1,4 +1,4 @@
-# Tic Tac Toe
+# Tic Tac Toe Game
 
 A modern implementation of the classic Tic Tac Toe game, featuring an AI opponent with multiple difficulty levels and persistent score tracking.
 
