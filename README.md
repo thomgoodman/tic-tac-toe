@@ -27,7 +27,7 @@ To play the game:
 tic-tac-toe/
 ├── src/
 │   ├── index.html      # Main game interface
-│   ├── styles.css      # Game styling
+│   ├── styles.css      # Game styling and themes
 │   ├── script.js       # UI and game controls
 │   └── gameLogic.js    # Core game logic
 ├── test/               # Unit and property-based tests
@@ -35,7 +35,8 @@ tic-tac-toe/
 │   └── gameLogic.property.test.js  # Property-based tests
 ├── e2e-tests/          # End-to-end tests
 │   ├── tests/          # Test specs
-│   │   └── game.spec.js   # Game flow tests
+│   │   ├── game.spec.js    # Game flow tests
+│   │   └── theme.spec.js   # Theme system tests
 │   ├── playwright.config.js  # Playwright configuration
 │   └── package.json    # E2E test dependencies
 ├── jest.config.js      # Jest configuration for unit tests
