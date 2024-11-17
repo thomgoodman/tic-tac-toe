@@ -37,7 +37,7 @@ test.describe('Theme Selection Tests', () => {
     });
 
     test('should apply correct colors for each theme', async ({ page }) => {
-        const themes = ['autumn', 'desert', 'coffee', 'cherry', 'golden'];
+        const themes = ['autumn', 'desert', 'coffee', 'cherry', 'ocean', 'forest', 'lavender', 'moonlight'];
         
         for (const theme of themes) {
             // Select theme
@@ -58,6 +58,13 @@ test.describe('Theme Selection Tests', () => {
             // Verify styles are applied
             expect(computedStyle.backgroundColor).toBeTruthy();
             expect(computedStyle.color).toBeTruthy();
+
+            // Verify gradient is applied
+            const bodyGradient = await page.evaluate(() => {
+                return window.getComputedStyle(document.body).background;
+            });
+            expect(bodyGradient).toContain('linear-gradient');
+            expect(bodyGradient).toContain('rgb');
         }
     });
 
