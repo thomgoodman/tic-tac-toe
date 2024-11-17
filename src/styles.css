@@ -7,6 +7,7 @@
 :root {
     /* Default Theme: Autumn Warmth */
     --gradient-start: #E8A87C;
+    --gradient-mid: #C38D9E;
     --gradient-end: #C38D9E;
     --primary-color: #41292C;
     --board-bg: #FAE3D9;
@@ -29,12 +30,13 @@
 /* Desert Sunset Theme */
 body[data-theme="desert"] {
     --gradient-start: #FF9A76;
-    --gradient-end: #FFC4A3;
+    --gradient-mid: #E88A72;
+    --gradient-end: #7B9EFF;
     --primary-color: #4A3B38;
     --board-bg: #FFF1E6;
     --cell-bg: #FFFFFF;
     --cell-x-color: #FF6B6B;
-    --cell-o-color: #E09F7D;
+    --cell-o-color: #7B9EFF;
     --hover-color: #FFE4D6;
     --win-color: #FF6B6B;
     --win-bg: #C1F3D7;
@@ -50,74 +52,149 @@ body[data-theme="desert"] {
 
 /* Coffee House Theme */
 body[data-theme="coffee"] {
-    --gradient-start: #B79492;
-    --gradient-end: #957186;
+    --gradient-start: #8B5E3C;
+    --gradient-mid: #6D4C2F;
+    --gradient-end: #3C788B;
     --primary-color: #3E2723;
     --board-bg: #D7CCC8;
     --cell-bg: #FFFFFF;
-    --cell-x-color: #795548;
-    --cell-o-color: #8D6E63;
+    --cell-x-color: #8B5E3C;
+    --cell-o-color: #3C788B;
     --hover-color: #EFEBE9;
-    --win-color: #795548;
+    --win-color: #8B5E3C;
     --win-bg: #C1F3D7;
-    --button-bg: #795548;
-    --button-hover: #5D4037;
+    --button-bg: #8B5E3C;
+    --button-hover: #6D4C2F;
     --container-bg: rgba(255, 248, 240, 0.95);
     --status-color: #3E2723;
     --score-bg: #EFEBE9;
     --score-text: #3E2723;
-    --select-border: #795548;
-    --select-focus: rgba(121, 85, 72, 0.4);
+    --select-border: #8B5E3C;
+    --select-focus: rgba(139, 94, 60, 0.4);
 }
 
 /* Cherry Blossom Theme */
 body[data-theme="cherry"] {
-    --gradient-start: #FFB7C5;
-    --gradient-end: #FF8FA3;
+    --gradient-start: #FF8FA3;
+    --gradient-mid: #FF6B8B;
+    --gradient-end: #8FFF9D;
     --primary-color: #4A2932;
     --board-bg: #FFE4E8;
     --cell-bg: #FFFFFF;
-    --cell-x-color: #FF4D6D;
-    --cell-o-color: #FF8FA3;
+    --cell-x-color: #FF8FA3;
+    --cell-o-color: #8FFF9D;
     --hover-color: #FFD1DC;
-    --win-color: #FF4D6D;
+    --win-color: #FF8FA3;
     --win-bg: #C1F3D7;
-    --button-bg: #FF4D6D;
-    --button-hover: #E63E5C;
+    --button-bg: #FF8FA3;
+    --button-hover: #FF6B8B;
     --container-bg: rgba(255, 245, 248, 0.95);
     --status-color: #4A2932;
     --score-bg: #FFD1DC;
     --score-text: #4A2932;
-    --select-border: #FF4D6D;
-    --select-focus: rgba(255, 77, 109, 0.4);
+    --select-border: #FF8FA3;
+    --select-focus: rgba(255, 143, 163, 0.4);
 }
 
-/* Golden Hour Theme */
-body[data-theme="golden"] {
-    --gradient-start: #FFB347;
-    --gradient-end: #FFCC33;
-    --primary-color: #4A3810;
-    --board-bg: #FFF3D4;
+/* Ocean Depths Theme */
+body[data-theme="ocean"] {
+    --gradient-start: #1A5F7A;
+    --gradient-mid: #2E8BAE;
+    --gradient-end: #7A5F1A;
+    --primary-color: #002B3C;
+    --board-bg: #E6F3F7;
     --cell-bg: #FFFFFF;
-    --cell-x-color: #FF9F1C;
-    --cell-o-color: #FFB347;
-    --hover-color: #FFE5B4;
-    --win-color: #FF9F1C;
+    --cell-x-color: #1A5F7A;
+    --cell-o-color: #7A5F1A;
+    --hover-color: #C5E4ED;
+    --win-color: #1A5F7A;
     --win-bg: #C1F3D7;
-    --button-bg: #FF9F1C;
-    --button-hover: #E88A0C;
-    --container-bg: rgba(255, 250, 240, 0.95);
-    --status-color: #4A3810;
-    --score-bg: #FFE5B4;
-    --score-text: #4A3810;
-    --select-border: #FF9F1C;
-    --select-focus: rgba(255, 159, 28, 0.4);
+    --button-bg: #1A5F7A;
+    --button-hover: #0A4F6A;
+    --container-bg: rgba(230, 243, 247, 0.95);
+    --status-color: #002B3C;
+    --score-bg: #C5E4ED;
+    --score-text: #002B3C;
+    --select-border: #1A5F7A;
+    --select-focus: rgba(26, 95, 122, 0.4);
+}
+
+/* Forest Mist Theme */
+body[data-theme="forest"] {
+    --gradient-start: #2D5A27;
+    --gradient-mid: #3B7A33;
+    --gradient-end: #5A272D;
+    --primary-color: #0B2B1D;
+    --board-bg: #E8F3E8;
+    --cell-bg: #FFFFFF;
+    --cell-x-color: #2D5A27;
+    --cell-o-color: #5A272D;
+    --hover-color: #D1E7D1;
+    --win-color: #2D5A27;
+    --win-bg: #C1F3D7;
+    --button-bg: #2D5A27;
+    --button-hover: #1D4A17;
+    --container-bg: rgba(232, 243, 232, 0.95);
+    --status-color: #0B2B1D;
+    --score-bg: #D1E7D1;
+    --score-text: #0B2B1D;
+    --select-border: #2D5A27;
+    --select-focus: rgba(45, 90, 39, 0.4);
+}
+
+/* Lavender Dreams Theme */
+body[data-theme="lavender"] {
+    --gradient-start: #9B8EA9;
+    --gradient-mid: #8777A0;
+    --gradient-end: #A99B8E;
+    --primary-color: #2E2639;
+    --board-bg: #F0EBF4;
+    --cell-bg: #FFFFFF;
+    --cell-x-color: #9B8EA9;
+    --cell-o-color: #A99B8E;
+    --hover-color: #E1D7E8;
+    --win-color: #9B8EA9;
+    --win-bg: #C1F3D7;
+    --button-bg: #9B8EA9;
+    --button-hover: #8777A0;
+    --container-bg: rgba(240, 235, 244, 0.95);
+    --status-color: #2E2639;
+    --score-bg: #E1D7E8;
+    --score-text: #2E2639;
+    --select-border: #9B8EA9;
+    --select-focus: rgba(155, 142, 169, 0.4);
+}
+
+/* Moonlight Theme */
+body[data-theme="moonlight"] {
+    --gradient-start: #4A6670;
+    --gradient-mid: #3A5160;
+    --gradient-end: #70544A;
+    --primary-color: #1A2530;
+    --board-bg: #E5E9EC;
+    --cell-bg: #FFFFFF;
+    --cell-x-color: #4A6670;
+    --cell-o-color: #70544A;
+    --hover-color: #D1D8DD;
+    --win-color: #4A6670;
+    --win-bg: #C1F3D7;
+    --button-bg: #4A6670;
+    --button-hover: #3A5660;
+    --container-bg: rgba(229, 233, 236, 0.95);
+    --status-color: #1A2530;
+    --score-bg: #D1D8DD;
+    --score-text: #1A2530;
+    --select-border: #4A6670;
+    --select-focus: rgba(74, 102, 112, 0.4);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    background: linear-gradient(135deg, 
+        var(--gradient-start) 0%, 
+        var(--gradient-mid) 50%, 
+        var(--gradient-end) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
