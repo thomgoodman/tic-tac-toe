@@ -26,6 +26,40 @@
  * --select-focus: Dropdown select focus state color
  */
 
+/**
+ * Layout System Documentation
+ * 
+ * The layout uses a combination of CSS Grid and Flexbox for responsive design:
+ * - CSS Grid: Used for the game board layout (3x3 grid)
+ * - Flexbox: Used for centering and organizing UI components
+ * 
+ * Key Layout Variables:
+ * --cell-size: Dynamic size for game cells (responsive)
+ * --gap-size: Spacing between cells and components
+ * --border-radius: Consistent rounded corners
+ * --container-padding: Spacing around game container
+ * 
+ * Breakpoints:
+ * - Mobile: < 480px (single column layout)
+ * - Tablet: 481px - 768px (compact layout)
+ * - Desktop: > 768px (full layout)
+ */
+
+/**
+ * Animation System Documentation
+ * 
+ * The game features smooth animations for enhanced user experience:
+ * - Transitions: All color and transform changes
+ * - Hover Effects: Scale and color changes
+ * - Win Animation: Pulse effect for winning combination
+ * - Score Updates: Pop animation for score changes
+ * 
+ * Animation Variables:
+ * --transition-duration: Speed of color/transform changes
+ * --scale-factor: Amount of scale for hover/active states
+ * --pulse-opacity: Opacity range for pulse animation
+ */
+
 * {
     margin: 0;
     padding: 0;
