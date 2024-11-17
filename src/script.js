@@ -264,23 +264,44 @@ function resetScores() {
     });
 }
 
-// Theme handling
-function setTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+/**
+ * Theme Management System
+ * Handles theme selection, persistence, and application.
+ * Themes are stored in localStorage to maintain user preferences across sessions.
+ */
+
+// Theme-related constants
+const THEME_STORAGE_KEY = 'selectedTheme';
+const DEFAULT_THEME = 'autumn';
+
+/**
+ * Initializes the theme system by:
+ * 1. Loading the previously selected theme from localStorage
+ * 2. Applying the theme to the document
+ * 3. Setting up theme change event listeners
+ */
+function initializeTheme() {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || DEFAULT_THEME;
+    document.body.setAttribute('data-theme', savedTheme);
+    document.getElementById('color-scheme').value = savedTheme;
 }
 
-// Initialize theme from localStorage or default to 'autumn'
-const savedTheme = localStorage.getItem('theme') || 'autumn';
-setTheme(savedTheme);
+/**
+ * Handles theme changes when user selects a new theme.
+ * Applies the theme and saves it to localStorage for persistence.
+ * @param {Event} event - The change event from the theme selector
+ */
+function handleThemeChange(event) {
+    const selectedTheme = event.target.value;
+    document.body.setAttribute('data-theme', selectedTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, selectedTheme);
+}
 
-// Theme selector event listener
-document.getElementById('color-scheme').addEventListener('change', (e) => {
-    setTheme(e.target.value);
-});
+// Set up theme change listener
+document.getElementById('color-scheme').addEventListener('change', handleThemeChange);
 
-// Set initial theme selection
-document.getElementById('color-scheme').value = savedTheme;
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', initializeTheme);
 
 // Event Listeners
 resetButton.addEventListener('click', resetGame);

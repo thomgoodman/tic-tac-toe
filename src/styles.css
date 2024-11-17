@@ -1,3 +1,31 @@
+/**
+ * Theme System Documentation
+ * 
+ * The theme system uses CSS custom properties (variables) to implement a flexible
+ * and maintainable color scheme system. Each theme defines the following properties:
+ * 
+ * Color Properties:
+ * --gradient-start: Starting color for background gradient
+ * --gradient-mid: Middle transition color for smoother gradients
+ * --gradient-end: Ending color (complementary to start) for background gradient
+ * --primary-color: Main text and border color
+ * --board-bg: Game board background color
+ * --cell-bg: Individual cell background color
+ * --cell-x-color: Color for X player marks
+ * --cell-o-color: Color for O player marks
+ * --hover-color: Cell hover state background color
+ * --win-color: Color for winning line highlight
+ * --win-bg: Background color for winning cells
+ * --button-bg: Button background color
+ * --button-hover: Button hover state color
+ * --container-bg: Game container background with transparency
+ * --status-color: Status message text color
+ * --score-bg: Score display background color
+ * --score-text: Score text color
+ * --select-border: Dropdown select border color
+ * --select-focus: Dropdown select focus state color
+ */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +34,9 @@
 
 :root {
     /* Default Theme: Autumn Warmth */
-    --gradient-start: #E8A87C;
-    --gradient-mid: #C38D9E;
-    --gradient-end: #C38D9E;
+    --gradient-start: #E8A87C;  /* Warm orange */
+    --gradient-mid: #C38D9E;    /* Transitional mauve */
+    --gradient-end: #C38D9E;    /* Cool purple */
     --primary-color: #41292C;
     --board-bg: #FAE3D9;
     --cell-bg: #FFFFFF;
@@ -27,11 +55,11 @@
     --select-focus: rgba(216, 87, 42, 0.4);
 }
 
-/* Desert Sunset Theme */
+/* Desert Sunset Theme - Coral to Cool Blue transition */
 body[data-theme="desert"] {
-    --gradient-start: #FF9A76;
-    --gradient-mid: #E88A72;
-    --gradient-end: #7B9EFF;
+    --gradient-start: #FF9A76;  /* Warm coral */
+    --gradient-mid: #E88A72;    /* Transitional peach */
+    --gradient-end: #7B9EFF;    /* Cool blue */
     --primary-color: #4A3B38;
     --board-bg: #FFF1E6;
     --cell-bg: #FFFFFF;
@@ -50,11 +78,11 @@ body[data-theme="desert"] {
     --select-focus: rgba(255, 107, 107, 0.4);
 }
 
-/* Coffee House Theme */
+/* Coffee House Theme - Rich Brown to Teal transition */
 body[data-theme="coffee"] {
-    --gradient-start: #8B5E3C;
-    --gradient-mid: #6D4C2F;
-    --gradient-end: #3C788B;
+    --gradient-start: #8B5E3C;  /* Rich brown */
+    --gradient-mid: #6D4C2F;    /* Medium roast */
+    --gradient-end: #3C788B;    /* Cool teal */
     --primary-color: #3E2723;
     --board-bg: #D7CCC8;
     --cell-bg: #FFFFFF;
@@ -73,11 +101,11 @@ body[data-theme="coffee"] {
     --select-focus: rgba(139, 94, 60, 0.4);
 }
 
-/* Cherry Blossom Theme */
+/* Cherry Blossom Theme - Pink to Spring Green transition */
 body[data-theme="cherry"] {
-    --gradient-start: #FF8FA3;
-    --gradient-mid: #FF6B8B;
-    --gradient-end: #8FFF9D;
+    --gradient-start: #FF8FA3;  /* Soft pink */
+    --gradient-mid: #FF6B8B;    /* Cherry pink */
+    --gradient-end: #8FFF9D;    /* Spring green */
     --primary-color: #4A2932;
     --board-bg: #FFE4E8;
     --cell-bg: #FFFFFF;
@@ -96,11 +124,11 @@ body[data-theme="cherry"] {
     --select-focus: rgba(255, 143, 163, 0.4);
 }
 
-/* Ocean Depths Theme */
+/* Ocean Depths Theme - Deep Teal to Golden transition */
 body[data-theme="ocean"] {
-    --gradient-start: #1A5F7A;
-    --gradient-mid: #2E8BAE;
-    --gradient-end: #7A5F1A;
+    --gradient-start: #1A5F7A;  /* Deep teal */
+    --gradient-mid: #2E8BAE;    /* Ocean blue */
+    --gradient-end: #7A5F1A;    /* Golden sand */
     --primary-color: #002B3C;
     --board-bg: #E6F3F7;
     --cell-bg: #FFFFFF;
@@ -119,11 +147,11 @@ body[data-theme="ocean"] {
     --select-focus: rgba(26, 95, 122, 0.4);
 }
 
-/* Forest Mist Theme */
+/* Forest Mist Theme - Deep Green to Rose transition */
 body[data-theme="forest"] {
-    --gradient-start: #2D5A27;
-    --gradient-mid: #3B7A33;
-    --gradient-end: #5A272D;
+    --gradient-start: #2D5A27;  /* Forest green */
+    --gradient-mid: #3B7A33;    /* Misty green */
+    --gradient-end: #5A272D;    /* Deep rose */
     --primary-color: #0B2B1D;
     --board-bg: #E8F3E8;
     --cell-bg: #FFFFFF;
@@ -142,11 +170,11 @@ body[data-theme="forest"] {
     --select-focus: rgba(45, 90, 39, 0.4);
 }
 
-/* Lavender Dreams Theme */
+/* Lavender Dreams Theme - Cool Purple to Warm Beige transition */
 body[data-theme="lavender"] {
-    --gradient-start: #9B8EA9;
-    --gradient-mid: #8777A0;
-    --gradient-end: #A99B8E;
+    --gradient-start: #9B8EA9;  /* Cool purple */
+    --gradient-mid: #8777A0;    /* Dusty lavender */
+    --gradient-end: #A99B8E;    /* Warm beige */
     --primary-color: #2E2639;
     --board-bg: #F0EBF4;
     --cell-bg: #FFFFFF;
@@ -165,11 +193,11 @@ body[data-theme="lavender"] {
     --select-focus: rgba(155, 142, 169, 0.4);
 }
 
-/* Moonlight Theme */
+/* Moonlight Theme - Cool Blue-Gray to Warm Brown transition */
 body[data-theme="moonlight"] {
-    --gradient-start: #4A6670;
-    --gradient-mid: #3A5160;
-    --gradient-end: #70544A;
+    --gradient-start: #4A6670;  /* Cool blue-gray */
+    --gradient-mid: #3A5160;    /* Night sky */
+    --gradient-end: #70544A;    /* Warm brown */
     --primary-color: #1A2530;
     --board-bg: #E5E9EC;
     --cell-bg: #FFFFFF;
