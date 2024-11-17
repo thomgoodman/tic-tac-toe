@@ -8,7 +8,7 @@ A modern implementation of the classic Tic Tac Toe game, featuring an AI opponen
 - 🤖 Three AI difficulty levels (Easy, Medium, Hard)
 - 📊 Persistent score tracking
 - 🎯 Smart AI moves with strategic decision making
-- 🎨 Five beautiful theme options
+- 🎨 Seven beautiful theme options with dynamic gradients
 - ✨ Victory animations and effects
 - 🧪 Comprehensive test coverage with unit, property-based, and E2E tests
 
@@ -130,15 +130,23 @@ Tests run automatically on Chromium, Firefox, and WebKit to ensure consistent be
 
 ## Themes
 
-The game features five carefully crafted themes that provide different visual experiences:
+The game features seven carefully crafted themes that provide different visual experiences, each with dynamic complementary color gradients:
 
-1. 🍂 **Autumn Warmth** - A cozy theme with warm oranges and muted purples
-2. 🌅 **Desert Sunset** - Vibrant oranges and peach tones inspired by desert landscapes
-3. ☕ **Coffee House** - Rich browns and creamy neutrals for a coffee shop ambiance
-4. 🌸 **Cherry Blossom** - Delicate pinks and soft hues reminiscent of spring
-5. 🌞 **Golden Hour** - Warm yellows and oranges capturing the magic of sunset
+1. 🍂 **Autumn Warmth** - A cozy theme transitioning from warm orange to muted purple
+2. 🌅 **Desert Sunset** - Vibrant coral fading into cool blue tones
+3. ☕ **Coffee House** - Rich brown blending into refreshing teal
+4. 🌸 **Cherry Blossom** - Soft pink flowing into light spring green
+5. 🌊 **Ocean Depths** - Deep teal merging with warm golden tones
+6. 🌲 **Forest Mist** - Forest green transitioning to deep rose
+7. 💜 **Lavender Dreams** - Cool purple harmonizing with warm beige
+8. 🌙 **Moonlight** - Cool blue-gray blending into warm brown
 
-Themes are automatically saved to your browser's local storage, so your preference persists between sessions.
+Each theme features:
+- Complementary color gradients for dynamic backgrounds
+- Harmonious mid-tones for smooth transitions
+- Carefully selected UI element colors for consistency
+- High contrast ratios for optimal readability
+- Persistent theme selection across sessions
 
 ## Game Features
 
